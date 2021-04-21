@@ -7,6 +7,8 @@ import (
 	"github.com/oremj/terraform-provider-dino-park/dinopark"
 )
 
+//go:generate go run github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs
+
 func main() {
 	plugin.Serve(&plugin.ServeOpts{
 		ProviderFunc: func() *schema.Provider {
