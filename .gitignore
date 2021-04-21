@@ -4,6 +4,10 @@
 *.dll
 *.so
 *.dylib
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+.terraform.lock.hcl
 
 # Test binary, built with `go test -c`
 *.test

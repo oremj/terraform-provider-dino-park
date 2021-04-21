@@ -4,7 +4,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
 
-	"github.com/oremj/terraform-provider-dino-park/dinopark"
+	"github.com/oremj/terraform-provider-dinopark/provider"
 )
 
 //go:generate go run github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs
@@ -12,7 +12,7 @@ import (
 func main() {
 	plugin.Serve(&plugin.ServeOpts{
 		ProviderFunc: func() *schema.Provider {
-			return dinopark.Provider()
+			return provider.Provider()
 		},
 	})
 }
