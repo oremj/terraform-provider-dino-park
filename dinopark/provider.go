@@ -14,27 +14,29 @@ func Provider() *schema.Provider {
 		Schema: map[string]*schema.Schema{
 			"client_id": &schema.Schema{
 				Type:        schema.TypeString,
-				Optional:    false,
-				DefaultFunc: schema.EnvDefaultFunc("DINO_PARK_CLIENT_ID", nil),
+				Required:    true,
+				DefaultFunc: schema.EnvDefaultFunc("DINOPARK_CLIENT_ID", nil),
 			},
 			"client_secret": &schema.Schema{
 				Type:        schema.TypeString,
-				Optional:    false,
-				DefaultFunc: schema.EnvDefaultFunc("DINO_PARK_CLIENT_SECRET", nil),
+				Required:    true,
+				DefaultFunc: schema.EnvDefaultFunc("DINOPARK_CLIENT_SECRET", nil),
 			},
 			"base_url": &schema.Schema{
 				Type:        schema.TypeString,
-				Optional:    false,
-				DefaultFunc: schema.EnvDefaultFunc("DINO_PARK_BASE_URL", nil),
+				Required:    true,
+				DefaultFunc: schema.EnvDefaultFunc("DINOPARK_BASE_URL", nil),
 			},
 			"auth0_url": &schema.Schema{
 				Type:        schema.TypeString,
-				Optional:    false,
-				DefaultFunc: schema.EnvDefaultFunc("DINO_PARK_AUTH0_URL", nil),
+				Required:    true,
+				DefaultFunc: schema.EnvDefaultFunc("DINOPARK_AUTH0_URL", nil),
 			},
 		},
-		ResourcesMap:         map[string]*schema.Resource{},
-		DataSourcesMap:       map[string]*schema.Resource{},
+		ResourcesMap: map[string]*schema.Resource{},
+		DataSourcesMap: map[string]*schema.Resource{
+			"dinopark_group": dataSourceGroups(),
+		},
 		ConfigureContextFunc: providerConfigure,
 	}
 }
